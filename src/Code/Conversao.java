@@ -1,17 +1,37 @@
 package Code;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Conversao {
     public static void main(String[] args) {
 
-        imprimeResultado(2);
-        imprimeResultado(4);
-        imprimeResultado(10);
-        imprimeResultado(25);
-        imprimeResultado(10035);
-        imprimeResultadoQualquerBase(90, 16);
-        imprimeResultadoQualquerBase(100, 17);
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Digite um numero decimal para converter (ou 'sair' para terminar): ");
+            String inputNumero = scan.next();
+
+            if (inputNumero.equalsIgnoreCase("sair")) {
+                break;
+            }
+
+            int numero;
+            try {
+                numero = Integer.parseInt(inputNumero);
+            } catch (NumberFormatException e) {
+                System.out.println("entrada invalida. Tente novamente.");
+                continue;
+            }
+
+            System.out.println("Digite a base para a conversao: ");
+            int base = scan.nextInt();
+
+            imprimeResultadoQualquerBase(numero, base);
+        }
+
+        System.out.println("Programa terminado.");
+        scan.close();
 
     }
 
@@ -45,7 +65,7 @@ public class Conversao {
     public static String decimalQualquerBase(int numero, int base) {
 
         if (base > 16) {
-            System.out.println("Sua base deve ser menor que 16");
+            System.out.println("Sua base tem que ser menor que 16");
         }
 
         Stack<Integer> stack = new Stack<>();
