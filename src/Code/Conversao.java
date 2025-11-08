@@ -24,7 +24,7 @@ public class Conversao {
                 continue;
             }
 
-            System.out.println("Digite a base para a conversao: ");
+            System.out.print("Digite a base para a conversao: ");
             int base = scan.nextInt();
 
             imprimeResultadoQualquerBase(numero, base);
@@ -84,5 +84,4 @@ public class Conversao {
 
         return numBase;
     }
-
 }
